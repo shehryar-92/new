@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poll</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="theme-toggle" id="themeToggle" role="button" tabindex="0" aria-label="Toggle dark mode">
+    <div class="theme-toggle-thumb"></div>
+  </div>
+
+  <main class="app">
+    <header class="app-header">
+      <h1>Quick Poll</h1>
+      <p class="subtitle">Create a question, cast votes, watch the chart move.</p>
+    </header>
+
+    <section id="createView" class="card">
+      <h2>New poll</h2>
+      <form id="createForm">
+        <label for="questionInput">Question</label>
+        <input type="text" id="questionInput" placeholder="What's your favorite season?" maxlength="120">
+
+        <div id="optionsList" class="options-list">
+          <label>Options</label>
+          <input type="text" class="option-input" placeholder="Option 1" maxlength="60">
+          <input type="text" class="option-input" placeholder="Option 2" maxlength="60">
+        </div>
+
+        <button type="button" id="addOptionBtn" class="btn-secondary">+ Add option</button>
+        <p id="createError" class="error-text" hidden></p>
+        <button type="submit" class="btn-primary">Create poll</button>
+      </form>
+    </section>
+
+    <section id="pollView" class="card" hidden>
+      <h2 id="pollQuestion"></h2>
+
+      <div id="voteOptions" class="vote-options"></div>
+
+      <div class="results-area">
+        <canvas id="resultsChart" width="220" height="220"></canvas>
+        <ul id="resultsLegend" class="legend"></ul>
+      </div>
+
+      <p id="totalVotes" class="total-votes"></p>
+      <button type="button" id="newPollBtn" class="btn-secondary">Start a new poll</button>
+    </section>
+  </main>
+
+  <script src="poll.js"></script>
+  <script src="chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
 
